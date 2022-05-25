@@ -54,7 +54,7 @@ class Game(Subject, metaclass=SingletonMeta):
 
     def execute_game(self):
         while True:
-            self.number = random.randint(1, 101)
+            self.number = random.randint(1, 100)
             print("Generate random number: {num}".format(num=self.number))
             self.notify_observers()
 
