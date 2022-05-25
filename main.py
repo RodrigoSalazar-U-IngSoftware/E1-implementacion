@@ -65,7 +65,7 @@ class Player(Observer):
         self._strategy = strategy
 
     def update(self, subject):
-        if self._strategy.execute( subject.number ):
+        if self._strategy.execute(subject.number):
             print("Player <{name}> Wins with Strategy <{strat}>".format(
                 name=self.name, strat=type(self._strategy).__name__)
             )
@@ -138,19 +138,15 @@ class StrategyTwoTwentyFiveMul(StrategyEvaluateRepetitions):
 
 
 if __name__ == '__main__':
-    g1 = Game()
+    g = Game()
     p1 = Player(StrategyFiveEven(), "P1")
     p2 = Player(StrategyFiveOdd(), "P2")
-
-    g2 = Game()
     p3 = Player(StrategyOnePrime(), "P3")
     p4 = Player(StrategyThreeTenMul(), "P4")
     p5 = Player(StrategyTwoTwentyFiveMul(), "P5")
 
-    g1.add_observer(p1)
-    g1.add_observer(p2)
-    g1.add_observer(p3)
-    g2.add_observer(p4)
-    g2.add_observer(p5)
-
-
+    g.add_observer(p1)
+    g.add_observer(p2)
+    g.add_observer(p3)
+    g.add_observer(p4)
+    g.add_observer(p5)  # Game Starts
