@@ -37,6 +37,7 @@ class Game(Subject, metaclass=SingletonMeta):
 
     def __init__(self):
         self.observers = []
+        self.numbers = None
         self.number = None
 
     def add_observer(self, observer):
@@ -53,8 +54,9 @@ class Game(Subject, metaclass=SingletonMeta):
             obs.update(self)
 
     def execute_game(self):
-        while True:
-            self.number = random.randint(1, 100)
+        self.numbers = random.sample(range(1, 101), 100) # Numeros aleatorios sin repeticion del 1-100
+        for num in self.numbers:
+            self.number = num
             print("Generate random number: {num}".format(num=self.number))
             self.notify_observers()
 
