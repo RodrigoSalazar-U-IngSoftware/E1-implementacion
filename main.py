@@ -2,6 +2,7 @@ import random
 from abc import ABC, ABCMeta, abstractmethod
 from threading import Lock, Thread
 
+
 class SingletonMeta(ABCMeta):
     _instances = {}
     _lock: Lock = Lock()
